@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>SampleApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+    <head>
+        <title>Simple App du Tutoriel Ruby on Rails | <%= @titre %></title>
+        <!-- La méthode csrf_meta_tag empêche le cross-site request forgery, un type d'attaque malicieuse-->
+        <%= csrf_meta_tag %>
+        
+    </head>
+    <body>
+        <!-- l'utilisation du "yield" est reponsable de l'insertion du contenu de chaque page dans le layout.
+        -----De cette façon on s'assure que les résultats de l'évaluation de l'expression soient insérés ici, à ce point exact du template.
+        -----Donc, le contenu de la page 'home' 'contact' et 'À Propos' sera affiché ici-->
+        <%= yield %>
+    </body>
 </html>
